@@ -36,4 +36,4 @@ And the other fiedls use for show on the record page .
 ![image](https://github.com/RosingL/salesforce-Multiple-to-Multiple-Select/blob/master/Images/Save.png)
 
 Notice:需要在Aura Component中引用jquery 。 jquery文件已经上传。
-Notice: Need Using Jquery in component.  jquery File is uploaded.
+Notice: Need Using Jquery in component.  
