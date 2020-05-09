@@ -26,7 +26,8 @@ And the other fiedls use for show on the record page .
 
 ![image](https://github.com/RosingL/salesforce-Multiple-to-Multiple-Select/blob/master/Images/FieldDependencies.png)
 
-通过代码读取依赖关系， 展示出多对多选择的效果。 
+![image](https://github.com/RosingL/salesforce-Multiple-to-Multiple-Select/blob/master/Images/FieldDepend.png)
+通过代码读取依赖关系，会自动将选项列表值LABEL及依赖关系自动带出。  展示出多对多选择的效果。 
 最终展示效果如图 
 保存的值，存入展示用的两个选项列表字段， 并在页面布局放出来。
 
