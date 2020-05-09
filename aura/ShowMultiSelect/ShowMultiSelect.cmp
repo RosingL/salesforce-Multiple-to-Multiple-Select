@@ -1,0 +1,57 @@
+<aura:component controller="MultiSelectController"   implements="force:lightningQuickActionWithoutHeader,lightning:hasPageReference,flexipage:availableForAllPageTypes,force:hasRecordId,lightning:actionOverride" access="global"  >
+		<!-- Need Import Jqueryjs -->
+        <ltng:require scripts="{!$Resource.jqueryjss}" />
+        <aura:handler name="init"   action="{!c.doInit}" value="{!this}"/>
+        <aura:attribute name="recordId" type="String" />
+        <aura:attribute name="listMapPick" type="List"/>
+        <aura:attribute name="title" type="String"/>
+        <aura:attribute name="loaded" type="Boolean" default="true" />
+        <aura:attribute name="Dataloaded" type="Boolean" default="false" />
+
+        <!-- Choiced Parent val -->
+        <aura:attribute name="activeParents" type="List" />
+        <aura:attribute name="activeParentsLabel" type="String" default="You Have Not Choice Any Parent Val" />
+        <aura:attribute name="activeParentsMessage" type="String" default="You Have Not Choice Any Child Val" />
+        <!-- Choiced Child val -->
+        <aura:attribute name="activeChilds" type="List"/>
+        <aura:attribute name="activeChildsLabel" type="String"/>
+        <aura:attribute name="activeChildsMessage" type="String"/>
+        <!--Wating Spinner-->
+        <aura:if isTrue="{!v.loaded }">
+                <lightning:spinner alternativeText="is loading" size="medium" class="slds-spinner_brandbrand" variant="brand"/>
+        </aura:if>
+
+        
+
+        <aura:if isTrue="{!v.Dataloaded }">
+            <div class="slds-card__body">
+                <lightning:card>
+                    <p align="center" style="color: red">{!v.activeParentsMessage }</p>
+                    
+                    <p align="center" style="color: red">{!v.activeChildsMessage }</p>
+                     
+                   <lightning:accordion aura:id="accordion"  allowMultipleSectionsOpen="true" onsectiontoggle="{!c.handleSectionToggle }" activeSectionName="{! v.activeParents }"  >
+                        <aura:iteration items="{!v.listMapPick}" var="item">
+                            <lightning:accordionSection name="{!item.parentPick.value}" label="{!item.parentPick.label}">
+                                <aura:set attribute="body">
+                                    <aura:iteration items= "{!item.listValues}" var="v">
+                                        <input type="checkbox" id="{!v.value}" data-name="{!item.parentPick.value}"  name="{!item.parentPick.value}" data-label="{!v.label}"  value="{!v.value}" onchange="{!c.handleSectionBus}" /> {!v.label}  &nbsp;&nbsp;&nbsp;
+                                    </aura:iteration>
+                                </aura:set>
+                            </lightning:accordionSection>
+                        </aura:iteration>
+                    </lightning:accordion>
+                </lightning:card>
+            </div>
+        </aura:if>
+        
+
+        <!-- 页脚 -->
+         <div class="modal-footer slds-modal__footer">
+                <lightning:button class="slds_m"  label="Cancel" onclick="{!c.Cancel}"/>
+                <lightning:button  class="uiButton--brand"    label="Save" onclick="{!c.Save}"/>
+        </div>
+
+
+               
+    </aura:component>
