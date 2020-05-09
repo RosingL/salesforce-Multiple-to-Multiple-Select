@@ -16,7 +16,7 @@ salesforce 不支持多对多 选项列表的依赖性设置，仅仅支持 一�
 salesforce is not support multiple to multiple Dependencies select . 
 Only support single to multiple || single to single select . 
 
-WE created four fields . and two fields is use for jst logic. To get the Dependencies .
+WE created four fields . and two fields  just is used for  logic. To get the Dependencies .
 And the other fiedls use for show on the record page . 
 
 ![image](https://github.com/RosingL/salesforce-Multiple-to-Multiple-Select/blob/master/Images/FieldCreated.png)
